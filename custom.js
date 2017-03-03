@@ -2,14 +2,17 @@ class PElement extends HTMLElement {
   constructor() {
     console.info('constructor');
     super();
+    this.shadow = this.attachShadow({
+      mode: 'closed'
+    });
   }
 
-  get template(){
+  get template() {
     return '';
   }
 
-  render(){
-    this.innerHTML = this.template;
+  render() {
+    this.shadow.innerHTML = this.template;
   }
 
   connectedCallback() {
