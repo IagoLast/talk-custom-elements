@@ -2,9 +2,7 @@ class PElement extends HTMLElement {
   constructor() {
     console.info('constructor');
     super();
-    this.state = {
-      name: 'World',
-    };
+    this.state = {};
   }
 
   get template() {
@@ -13,6 +11,11 @@ class PElement extends HTMLElement {
 
   render() {
     this.innerHTML = this.template;
+  }
+
+  setState(newValue) {
+    this.state = newValue;
+    this.render();
   }
 
   connectedCallback() {
