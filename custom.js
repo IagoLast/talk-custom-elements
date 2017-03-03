@@ -4,8 +4,17 @@ class PElement extends HTMLElement {
     super();
   }
 
+  get template(){
+    return '';
+  }
+
+  render(){
+    this.innerHTML = this.template;
+  }
+
   connectedCallback() {
     console.info('connectedCallback', this);
+    this.render();
   }
 
   disconnectedCallback() {
