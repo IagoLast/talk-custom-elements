@@ -1,7 +1,7 @@
 class Hello extends PElement {
   get template() {
     return `
-      <h1>Hello world</h1>
+      <h1>Hello ${this.state.name}</h1>
       <p>This are examples of web components written using only ES6.</p>
     `;
   }

@@ -2,9 +2,9 @@ class PElement extends HTMLElement {
   constructor() {
     console.info('constructor');
     super();
-    this.shadow = this.attachShadow({
-      mode: 'closed'
-    });
+    this.state = {
+      name: 'World',
+    };
   }
 
   get template() {
@@ -12,7 +12,7 @@ class PElement extends HTMLElement {
   }
 
   render() {
-    this.shadow.innerHTML = this.template;
+    this.innerHTML = this.template;
   }
 
   connectedCallback() {
