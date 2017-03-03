@@ -1,26 +1,31 @@
 class Hello extends PElement {
   constructor() {
     super();
-    this.state = {
-      name: 'Hello',
-      counter: 0,
-    }
+    this.state.text = '';
   }
+
   get template() {
     return `
-      <h1>Hello ${this.state.name}</h1>
-      <p>You clicked ${this.state.counter} times.</p>
+      <section>
+        <h1>Data binding</h1>
+        <input type="text" name="bind" />
+        <p>${this.state.text}</p>
+      </section>
     `;
   }
 
   connectedCallback() {
-    super.connectedCallback();
-    this.addEventListener('click', this.onClick);
+    this.innerHTML = this.template;
+    this.querySelector('input').addEventListener('input', this.onChange.bind(this));
   }
 
-  onClick() {
-    this.state.counter++;
+  onChange(event) {
+    this.state.text = event.target.value
     this.setState(this.state)
+  }
+
+  render() {
+    this.querySelector('p').innerHTML = this.state.text;
   }
 }
 
